@@ -11,7 +11,8 @@
     - restart ypbind
 
 - name: install nis server packages
-  package:
+  apt:
+    update_cache: true
     name: "{{ item }}"
     state: present
   with_items: "{{ nis_server_packages_ubuntu }}"
@@ -22,7 +23,8 @@
     - restart ypserv
 
 - name: install nis common packages
-  package:
+  apt:
+    update_cache: true
     name: "{{ item }}"
     state: present
   with_items: "{{ nis_packages_ubuntu }}"
