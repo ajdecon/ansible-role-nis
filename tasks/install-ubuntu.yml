@@ -41,14 +41,28 @@
     - restart rpcbind
     - restart ypbind
 
-- name : template in /var/yp/securenets
+- name : template in securenets file 
   template:
     src: securenets.j2
-    dest: /var/yp/securenets
+    dest: /etc/ypserv.securenets
   when: nis_server|bool
   notify:
     - restart rpcbind
     - restart ypserv
+
+- name: template in defaultdomain file
+  template:
+    src: defaultdomain.j2
+    dest: /etc/defaultdomain
+  notify:
+    - restart rpcbind
+    - restart ypserv
+
+- name: set NIS server as master
+  lineinfile:
+    path: "/etc/default/nis"
+    regexp: "^NISSERVER="
+    line: "NISSERVER=master"
 
 - name : template in yp Make cronjob
   template:
