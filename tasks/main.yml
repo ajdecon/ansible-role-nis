@@ -5,6 +5,8 @@
   when: nis_enabled|bool and ansible_os_family == "RedHat"
 - include_tasks: install-ubuntu.yml
   when: nis_enabled|bool and ansible_distribution == "Ubuntu"
-- include_tasks: initialize.yml
+- include_tasks: initialize-redhat.yml
   when: nis_initialize|bool and ansible_os_family == "RedHat"
+- include_tasks: initialize-ubuntu.yml
+  when: nis_initialize|bool and ansible_distribution == "Ubuntu"
 
