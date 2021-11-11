@@ -17,6 +17,14 @@ nis_packages:
  - yp-tools
  - nscd
 
+nis_server_packages_ubuntu:
+ - nis
+nis_server_daemons:
+ - nis
+nis_packages:
+ - nis
+ - nscd
+
 nis_manage_nsswitch: True
 nis_manage_nscd: True
 nis_nscd_enabled: "yes"
