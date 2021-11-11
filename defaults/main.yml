@@ -21,7 +21,7 @@ nis_server_packages_ubuntu:
  - nis
 nis_server_daemons:
  - nis
-nis_packages:
+nis_packages_ubuntu:
  - nis
  - nscd
 
