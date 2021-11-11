@@ -9,4 +9,6 @@
   when: nis_initialize|bool and ansible_os_family == "RedHat"
 - include_tasks: initialize-ubuntu.yml
   when: nis_initialize|bool and ansible_distribution == "Ubuntu"
+  vars:
+    yp_bind_dir: "/usr/lib/yp"
 

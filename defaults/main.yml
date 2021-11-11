@@ -34,3 +34,4 @@ nis_nm_enabled: "no"
 nis_nm_state: "stopped"
 nis_initialize: True
 nis_ypbind_timeout: 180
+nis_bind_dir: "/usr/lib64/yp"
